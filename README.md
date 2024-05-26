@@ -1,5 +1,50 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+
+# HOME FOR 3D
+
+## INTRODUCTION
+
+Welcome to the 'Home for 3D' project. The projecs is the platform presenting informally and UNOFFICIALLY the 3d metal printing research group of the School of Mechanical Engineering, University of Portsmouth (UoP), UK. The purpose of the project is to facilitate interaction between the research staff of the Team and the students interested in learning more about the fascinating and explosively growing area of metal 3D printing (a.k.a. additive manufacturing). Are you interested? Here you can meet the key people, learn what they do. Do you have your own idea? Share it with us: sign-up and submit your proposal.
+
+## TECHNOLOGIES
+
+The following tools were used during the project setup and development
+- Static frontend: HTML, CSS, JavaScript
+- Backend:
+- Relational database:
+- Frameworks:
+- Libraries:
+
+
+## USER STORIES PROJECT REQUIREMENTS
+
+The project must (will) provide the followith main capabilities:
+
+- The user will found the initial information on the group (members and their background).
+
+- The user will be able to sign in and submit an idea in the form of written proposal.
+
+- The user will receive a feedback on the submitted idea.
+
+- The platform will provide a channel for informal communication (e.g. will be able to enquire regarding current status of an experiment, planned/unforeseen equipment maintenance and downtime, etc.)
+
+## FEATURES
+
+## TESTING
+
+## DEPLOYMENT
+
+## FUTURE WORK
+
+### Acknowledgement
+
+==================================================================
+
+
+
+
+
 Welcome DrSYakovlev ,
 
 This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
