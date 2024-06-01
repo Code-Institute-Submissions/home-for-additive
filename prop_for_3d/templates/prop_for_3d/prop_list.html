@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Views Part 1</title>
+</head>
+
+<body>
+    <h1>Prop list</h1>
+    {% for prop in object_list %}
+    <h2>{{prop.title}}</h2> <!--N.b. post(prop) and title field-->
+    <!--<p>{{post.excerpt}}</p> N.b. post(prop) and title field-->
+    <p>Author: {{prop.author}}</p>
+    {% endfor %}
+</body>
+
+</html>

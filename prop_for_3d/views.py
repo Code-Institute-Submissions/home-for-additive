@@ -1,7 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Prop
+# from django.http import HttpResponse
 
 # Create your views here.
-def index(request):
-    return HttpResponse('Hello, addictive!')
+
+class PropList(generic.ListView):
+    model = Prop
+
+# def index(request):
+#     return HttpResponse('Hello, addictive!')
+
+
 
