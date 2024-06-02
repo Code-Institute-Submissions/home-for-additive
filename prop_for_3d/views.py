@@ -11,5 +11,7 @@ class PropList(generic.ListView):
 # def index(request):
 #     return HttpResponse('Hello, addictive!')
 
-
+class PropList(generic.ListView):
+    queryset = Prop.objects.filter(status=1)
+    template_name = "prop_list.html"
 
