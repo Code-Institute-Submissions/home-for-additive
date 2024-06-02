@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'prop_for_3d'
+    'django_summernote',
+    'prop_for_3d',
 ]
 
 MIDDLEWARE = [
