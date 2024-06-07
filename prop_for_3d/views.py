@@ -14,5 +14,5 @@ class PropList(generic.ListView):
 class PropList(generic.ListView):
     queryset = Prop.objects.filter(status=1)
     # template_name = "prop_list.html"
-    template_name = "prop_for_3s/index.html"
+    template_name = "prop_for_3d/index.html"
 
