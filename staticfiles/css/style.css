@@ -1,0 +1,194 @@
+/*----------text----------*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+.title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    color: darkslategray;
+}
+
+.heading {
+    margin-left: 30px;
+}
+
+/*----------colors----------*/
+body {
+    background-color: rgb(240, 240, 240);
+}
+
+/*----------images----------*/
+
+.logo {
+    background: url(../images/logo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    min-height: 305px;
+    transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+}
+
+img {
+    width: 100%;
+    padding: 10px
+}
+
+.bio {
+    padding: 10px 30px 30px 20px;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;    
+}
+
+/*----------Nav bar----------*/
+
+.no-padding {
+    padding: 0
+}
+
+.menuitem {
+    height: 100px;
+    text-align: center;
+    padding: 0;
+    border-top: solid 2px grey;
+    border-right: solid 2px grey;
+    background-color: rgb(232, 229, 222);
+}
+
+.menuitem a {
+    width: 100%;
+    text-decoration: none;
+    color: darkslategray;
+    height: 120px;
+    font-size: 20px;
+}
+
+.menuitem span {
+    display: block;
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    }
+
+.list-inline-item:not(:last-child) {
+    margin: 0;
+}
+
+.menucontainer {
+    font-size: 0;
+}
+
+.section-bg {
+    background-color:rgb(182, 220, 222);
+    padding: 25px;
+}
+
+
+.front-text-format {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: justify;    
+    text-justify: inter-word;
+    color:darkslategrey;
+    margin: 20px; 
+}
+
+
+#nav {
+    margin: 0;
+}
+
+#nav li {
+    font-size: 30px;
+    padding: 0;
+
+}
+
+/*----------Footer----------*/
+
+.footer-item-marg {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.useful-links {
+    color: darkslategrey;
+
+}
+
+svg {
+    margin: 10px;
+    margin-left: 40px;
+    
+}
+
+span {
+    color: darkslategray;
+}
+
+a {
+    text-decoration: none;
+}
+
+.copyright {
+    background-color: slateblue;
+    text-align: right;
+    color:whitesmoke;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 100;
+    margin-top: 50px;
+
+}
+
+.copyright p {
+    margin: 0;
+}
+
+/*----------Effects----------*/
+
+.menuitem:hover {
+    background-color:cadetblue;
+    
+}
+
+.menuitem span:hover {
+    color: white;  
+}
+
+.bio:hover {
+    color: black;
+    font-weight: 500;
+}
+
+
+/*----------Media Query----------*/
+
+@media only screen and (max-width: 768px) {
+    img {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .logo {
+        min-height: 120px;
+    }
+
+    .title {
+        margin-top: 30px;
+        margin-bottom: 35px;
+    }
+
+    img {
+        width: 50%;
+    }
+}
