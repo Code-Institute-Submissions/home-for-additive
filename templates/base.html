@@ -34,17 +34,17 @@
                                     home</span>Home</a>                                
                             </li>
                             <li class="col-6 col-sm-3 list-inline-item menuitem" title="OUR TEAM">
-                                <a href="{% static 'templates/team.html' %}"><span class="material-symbols-outlined">
+                                <a href="{% url 'team' %}"><span class="material-symbols-outlined">
                                     group
                                     </span>Team</a>
                             </li>
                             <li class="col-6 col-sm-3 list-inline-item menuitem" title="FACILITY">
-                                <a href="#"><span class="material-symbols-outlined">
+                                <a href="{% url 'facility' %}"><span class="material-symbols-outlined">
                                     service_toolbox
                                     </span>Facility</a>
                             </li>
                             <li class="col-6 col-sm-3 list-inline-item menuitem" title="SUBMIT PROPOSAL">
-                                <a href="#" target="_blank"><span class="material-symbols-outlined">
+                                <a href="{% url 'proposal' %}" target="_blank"><span class="material-symbols-outlined">
                                     note_stack
                                     </span>Proposal</a>
                             </li>

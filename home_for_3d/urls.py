@@ -20,7 +20,8 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('', include('prop_for_3d.urls'), name='prop_for_3d-urls'),
+    path('', include('prop_for_3d.urls'), name='prop_for_3d'),
     path('summernote/', include('django_summernote.urls')),
     path('admin/', admin.site.urls),
+      
 ]
