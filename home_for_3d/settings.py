@@ -20,6 +20,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-drsyakovlev-homeforaddi-abht9tq6lv8.ws-eu114.gitpod.io',]
 
 # Application definition
 

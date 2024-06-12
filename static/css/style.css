@@ -39,7 +39,8 @@ img {
 .bio {
     padding: 10px 30px 30px 20px;
     font-size: 18px;
-    font-family: "Roboto", sans-serif;    
+    font-family: "Roboto", sans-serif;
+    text-justify: inter-word;  
 }
 
 /*----------Nav bar----------*/

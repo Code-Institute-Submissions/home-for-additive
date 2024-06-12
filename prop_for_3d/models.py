@@ -18,13 +18,12 @@ class Prop(models.Model):
     def __str__(self):
         return f"The title of this proposal is {self.title}"
 
-
-
 class Assessment(models.Model):
-    proposal = models.ForeignKey(Prop, on_delete=models.CASCADE, related_name="assessors_reply")
-    # slug = models.SlugField(max_length=200, unique=True)
-    assessor = models.ForeignKey(User, on_delete=models.CASCADE, related_name="assessment") # Must be someone else other than the 'User'?
+    proposal = models.ForeignKey(Prop, on_delete=models.CASCADE, related_name="assessors_reply")    
+    assessor = models.ForeignKey(User, on_delete=models.CASCADE, related_name="assessment")
     comment = models.TextField()
     approved_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+
+
 
