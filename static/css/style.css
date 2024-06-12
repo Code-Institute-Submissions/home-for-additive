@@ -154,6 +154,13 @@ a {
     margin: 0;
 }
 
+/*----------Proposals-Overview----------*/
+
+.prop-overview {
+    font-family: "Roboto", sans-serif;
+}
+
+
 /*----------Effects----------*/
 
 .menuitem:hover {
