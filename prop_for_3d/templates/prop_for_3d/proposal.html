@@ -6,14 +6,21 @@
 
 <!--Below is the overwiew of the most recently submitted students ideas-->
 <br>
-<h3 class="prop-overview" >Recent ideas<span class="material-symbols-outlined">lightbulb</span></h3>
+<h3 id="ideas-header" >Recent ideas<span class="material-symbols-outlined">lightbulb</span></h3>
+<div class="entry-background">
 
-<div class="row no-gutters">
+{% for prop in proposals %}
+
+<div class="row no-gutters prop-overview">
     <br>
-    <div class="col-12 col-md-4 prop-overview">Topic/Subject</div>
-    <div class="col-12 col-md-4 prop-overview">Student</div>
-    <div class="col-12 col-md-4 prop-overview">Keywords</div>
+    <div class="col-12 col-md-4"><strong>Topic: </strong>{{ prop.title }}</div>    
+    <div class="col-12 col-md-4"><strong>Supmitted on: </strong>{{ prop.created_on }}</div>
+    <div class="col-12 col-md-4"><strong>Student: </strong>{{ prop.student }}</div>
 </div>
 <hr>
+
+{% endfor %}
+
+</div>
 
 {% endblock %}

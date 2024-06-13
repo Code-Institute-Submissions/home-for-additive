@@ -40,5 +40,6 @@ def facility(request):
 
 def proposal(request):
     proposals = Prop.objects.filter(status=1)
+    # print(proposals)
     return render(request, 'prop_for_3d/proposal.html', {'proposals': proposals})
 
