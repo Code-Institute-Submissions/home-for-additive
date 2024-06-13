@@ -1,18 +1,18 @@
 from django.contrib import admin
-from .models import Prop, Assessment
+from .models import Prop
 from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(Prop)
-class PropAdmin(SummernoteModelAdmin): # Or AssessmentAdmin? The most likely, PropAdmin...
+class PropAdmin(SummernoteModelAdmin):
 
-    list_display = ('title', 'slug', 'status') # N.b. Slug is not in a model. May throw an error
-    search_fields = ['title', 'content']
+    list_display = ('title', 'slug', 'status', 'keywords', 'email', 'student', 'created_on')
+    search_fields = ['title', 'content', 'keywords']
     list_filter = ('status', 'created_on')    
-    prepopulated_fields = {'slug': ('title',)} # N.b. Slug is not in a model. May throw an error. Can I comment out/delete this line?
+    prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
 # Register your models here.
-admin.site.register(Assessment)
+
 
 

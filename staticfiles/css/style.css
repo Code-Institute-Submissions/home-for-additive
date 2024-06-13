@@ -18,10 +18,14 @@ body {
     background-color: rgb(240, 240, 240);
 }
 
+.entry-background {
+    background-color:#b6dcde;
+}
+
 /*----------images----------*/
 
 .logo {
-    background: url(/static/images/logo.jpg);
+    background: url('/static/images/logo.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -39,7 +43,8 @@ img {
 .bio {
     padding: 10px 30px 30px 20px;
     font-size: 18px;
-    font-family: "Roboto", sans-serif;    
+    font-family: "Roboto", sans-serif;
+    text-justify: inter-word;  
 }
 
 /*----------Nav bar----------*/
@@ -153,6 +158,21 @@ a {
     margin: 0;
 }
 
+#ideas-header {
+    font-family: "Roboto", sans-serif;
+    padding-left: 30px;
+    color: rgb(20, 75, 45);
+    font-size: x-large;
+}
+
+/*----------Proposals-Overview----------*/
+
+.prop-overview {
+    font-family: "Roboto", sans-serif;
+    padding-left: 20px;
+}
+
+
 /*----------Effects----------*/
 
 .menuitem:hover {
@@ -167,6 +187,11 @@ a {
 .bio:hover {
     color: black;
     font-weight: 500;
+}
+
+.prop-overview:hover {
+    font-weight: 500;
+    background-color: rgb(213, 226, 232);
 }
 
 
