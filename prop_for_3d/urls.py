@@ -7,7 +7,7 @@ urlpatterns = [
     path('team/', views.team, name="team"),
     path('facility/', views.facility, name="facility"),
     path('proposal', views.proposal, name="proposal"),
-    # path('<slug:slug>/', views.proposal, name='proposal'), #N.b. the slug field: is it in the model?
+    path('<slug:slug>/', views.prop_single, name='prop_single'),
     # path('proposal/<slug:slug>/', views.proposal, name='proposal'),
     ]
 

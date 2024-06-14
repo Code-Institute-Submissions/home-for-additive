@@ -13,7 +13,7 @@
 
 <div class="row no-gutters prop-overview">
     <br>
-    <div class="col-12 col-md-4"><strong>Topic: </strong>{{ prop.title }}</div>    
+    <div class="col-12 col-md-4"><a href="{% url 'prop_single' prop.slug %}"><strong>Topic: </strong>{{ prop.title }}</a></div>    
     <div class="col-12 col-md-4"><strong>Supmitted on: </strong>{{ prop.created_on }}</div>
     <div class="col-12 col-md-4"><strong>Student: </strong>{{ prop.student }}</div>
 </div>

@@ -40,6 +40,10 @@ def facility(request):
 
 def proposal(request):
     proposals = Prop.objects.filter(status=1)
-    # print(proposals)
+    print(proposals)
     return render(request, 'prop_for_3d/proposal.html', {'proposals': proposals})
 
+def prop_single(request, slug):
+    queryset = Prop.objects.filter(status=1)
+    prop = get_object_or_404(queryset, slug=slug)
+    return render(request, 'prop_for_3d/prop_single.html', {"prop" : prop})
