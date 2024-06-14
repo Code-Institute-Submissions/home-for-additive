@@ -31,9 +31,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django_summernote',
     'prop_for_3d',
 ]
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -44,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'home_for_3d.urls'
@@ -106,6 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
