@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
 <section class="section-bg">
     <div class="row no-gutters front-text-format">
         <!--Here comes the page with the single proposal-->
@@ -12,7 +14,18 @@
         <div class="col col-md-10">
             <div>{{ prop.content }}</div>
         </div>
-    </div>
+    </div>    
 </section>
+
+{% else %}
+
+<div class="row">
+    <div class="col">
+        <p>You need to sign-in to view proposal content or submit your idea.</p>
+
+    </div>
+</div>
+
+{% endif %}
 
 {% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Prop
 from django.http import HttpResponse
+from .forms import NewProposal
 
 # Create your views here.
 
@@ -46,4 +47,23 @@ def proposal(request):
 def prop_single(request, slug):
     queryset = Prop.objects.filter(status=1)
     prop = get_object_or_404(queryset, slug=slug)
-    return render(request, 'prop_for_3d/prop_single.html', {"prop" : prop})
+    
+    return render(
+        request,
+        'prop_for_3d/prop_single.html',
+        {
+            "prop" : prop,
+            # "new_proposal": new_proposal,
+            },
+        )
+
+def new_prop(request):
+    new_prop = NewProposal()
+    return render(
+        request,
+        'prop_for_3d/new_prop.html',
+        {
+            "new_prop": new_prop,
+        },
+    )
+

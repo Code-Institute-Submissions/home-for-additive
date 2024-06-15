@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %} <!--Cool image will be added here-->
+
+<!-- Creating New Proposal -->
+<section>
+    <div class="col-md-4 card mb-4 mt-3">
+        <div class="card-body">
+            {% if user.is_authenticated %}
+            <h3>Write your idea here:</h3>
+            <p>Posting as: {{ user.username }}</p>
+            <form id="commentForm" method="post" style="margin-top: 1.3em;">
+                {{ new_prop }}
+                {% csrf_token %}
+                <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button> <!--POST method will be wired-up here.-->
+            </form>
+            {% else %}
+            <p>You need to be logged in to submit your idea.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!--Back to the student portal - link -->
+
+{% endblock %}
+
