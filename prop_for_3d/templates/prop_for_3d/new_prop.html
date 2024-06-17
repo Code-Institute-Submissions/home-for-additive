@@ -4,6 +4,8 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 {% load static %} <!--Cool image will be added here-->
 
 <!-- Creating New Proposal -->
@@ -17,9 +19,9 @@
                 <h3>Write your idea here:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                    {{ new_prop }}
+                    {{ new_prop | crispy }}
                     {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg"><a href="{% url 'confirmation'  %}">Submit</a></button>
+                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg"><a href="{% url 'submit_new_prop' %}">Submit</a></button>
                     <!--POST method will be wired-up here.-->
                 </form>
                 

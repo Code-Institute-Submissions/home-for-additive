@@ -66,9 +66,13 @@ def new_prop(request):
             "new_prop": new_prop,
         },
     )
+
+
 def submit_new_prop(request):
-    new_prop = NewProposal(data=request.POST)
-    if new_prop.is_valid():
-        new_prop.save()
-        messages.add_message(request, messages.SUCCESS, "Thanks for sharing your idea!")
+    if request.method == "POST":
+        new_prop = NewProposal(data=request.POST)
+        if new_prop.is_valid():
+            new_prop.save()
+            messages.add_message(request, messages.SUCCESS, "Thanks for sharing your idea!")
+            new_prop = NewProposal()
     return render(request, 'prop_for_3d/confirmation.html')
