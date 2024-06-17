@@ -11,6 +11,14 @@
 <!--Below is the overwiew of the most recently submitted students ideas-->
 <br>
 <h3 id="ideas-header" >Recent ideas<span class="material-symbols-outlined">lightbulb</span></h3>
+<div class="ideas">
+<p>
+On this page you can:<br>
+    - Browse topics and autors of recently submitted proposal if you are not logged in and just searching for an inspiration.<br>
+    - Log in to be able to see the full text of ideas on the thrilling subject of  of your fellow students or share your own.<br>
+    - N.b. this an area where you can propose a project idea you would like to implement in the context of your study rather than a brainstorm zone.
+</p>
+</div>
 <div class="entry-background">
 
 {% for prop in proposals %}
@@ -26,18 +34,27 @@
 {% endfor %}
 
 {% if user.is_authenticated %}
-<a href="{% url 'new_prop' %}" target="_blank">Share your idea with us.</a>
-<li>
-	<a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-</li>
+
+<div class="container-fluid button-position">
+<button class="btn btn-secondary" type="button"><a href="{% url 'new_prop' %}" target="_blank" class="share-idea">Share your idea with us.</a></button>
+<!--<a href="{% url 'new_prop' %}" target="_blank">Share your idea with us.</a> -->
+<button class="btn btn-dark"><a class="nav-link {% if request.path == logout_url %}active{% endif %} share-idea" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+</button>
+</div>
+<br>
+
 {% else %}
-<li class="nav-item">
+<div class="container-fluid button-position">
+<button class="nav-item">
 	<a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
 		href="{% url 'account_signup' %}">Register</a>
-</li>
-<li class="nav-item">
+</button>
+<button class="nav-item">
 	<a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-</li>
+</button>
+
+</div>
+<br>
 {% endif %}
 
 </div>

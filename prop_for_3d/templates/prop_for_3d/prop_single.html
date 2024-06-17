@@ -7,12 +7,12 @@
 <section class="section-bg">
     <div class="row no-gutters front-text-format">
         <!--Here comes the page with the single proposal-->
-        <div class="col col-md-2">
-            <div>{{ prop.student }}</div>
-            <div>{{ prop.submitted_on }}</div>
-        </div>
-        <div class="col col-md-10">
-            <div>{{ prop.content }}</div>
+        <div class="col">
+            <div>{{ prop.student }} wrote:</div>
+            <br>      
+            <div class="proposal">{{ prop.content }}</div>
+            <br>
+            <div class="created_on">{{ prop.created_on }}</div>
         </div>
     </div>    
 </section>
