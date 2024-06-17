@@ -6,9 +6,10 @@ urlpatterns = [
     path('index/', views.index, name="index"),
     path('team/', views.team, name="team"),
     path('facility/', views.facility, name="facility"),
-    path('proposal', views.proposal, name="proposal"),
+    path('proposal/', views.proposal, name="proposal"),
     path('<slug:slug>/', views.prop_single, name="prop_single"),
-    path('proposal/new_prop', views.new_prop, name="new_prop")
+    path('proposal/new_prop', views.new_prop, name="new_prop"),
+    path('new_prop/confirmation/', views.submit_new_prop, name="submit_new_prop"), # name="?" check
     # path('proposal/<slug:slug>/', views.proposal, name='proposal'),
     ]
 

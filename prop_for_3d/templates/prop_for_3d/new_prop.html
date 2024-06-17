@@ -19,7 +19,7 @@
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
                     {{ new_prop }}
                     {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg"><a href="{% url 'confirmation'  %}">Submit</a></button>
                     <!--POST method will be wired-up here.-->
                 </form>
                 

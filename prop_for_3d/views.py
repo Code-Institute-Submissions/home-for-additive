@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib import messages
 from .models import Prop
 from django.http import HttpResponse
 from .forms import NewProposal
@@ -46,8 +47,7 @@ def proposal(request):
 
 def prop_single(request, slug):
     queryset = Prop.objects.filter(status=1)
-    prop = get_object_or_404(queryset, slug=slug)
-    
+    prop = get_object_or_404(queryset, slug=slug)    
     return render(
         request,
         'prop_for_3d/prop_single.html',
@@ -66,4 +66,9 @@ def new_prop(request):
             "new_prop": new_prop,
         },
     )
-
+def submit_new_prop(request):
+    new_prop = NewProposal(data=request.POST)
+    if new_prop.is_valid():
+        new_prop.save()
+        messages.add_message(request, messages.SUCCESS, "Thanks for sharing your idea!")
+    return render(request, 'prop_for_3d/confirmation.html')
