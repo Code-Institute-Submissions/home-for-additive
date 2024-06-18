@@ -9,4 +9,5 @@ document.getElementById('id_student').insertAdjacentHTML('afterend', '<hr>');
 document.getElementById('id_student').insertAdjacentHTML('afterend', '<br>');
 document.getElementById('id_content').insertAdjacentHTML('afterend', '<hr>');
 document.getElementById('id_content').insertAdjacentHTML('afterend', '<br>');
+document.getElementById('div_id_slug').style.display = 'none';
 

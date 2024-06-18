@@ -21,7 +21,7 @@
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
                     {{ new_prop | crispy }}
                     {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg"><a href="{% url 'submit_new_prop' %}">Submit</a></button>
+                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg"><!--<a href="{% url 'submit_new_prop' %}">Submit</a>-->submit</button>
                     <!--POST method will be wired-up here.-->
                 </form>
                 

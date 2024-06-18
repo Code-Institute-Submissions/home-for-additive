@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib import messages
 from .models import Prop
@@ -48,31 +48,48 @@ def proposal(request):
 def prop_single(request, slug):
     queryset = Prop.objects.filter(status=1)
     prop = get_object_or_404(queryset, slug=slug)    
+    # new_proposal = NewProposal()
     return render(
         request,
         'prop_for_3d/prop_single.html',
         {
             "prop" : prop,
-            # "new_proposal": new_proposal,
+            #"new_proposal": new_proposal,
             },
         )
 
-def new_prop(request):
-    new_prop = NewProposal()
-    return render(
-        request,
-        'prop_for_3d/new_prop.html',
-        {
-            "new_prop": new_prop,
-        },
-    )
+#def new_prop(request):
+#    new_prop = NewProposal()
+#    return render(request, 'prop_for_3d/new_prop.html', {"new_prop": new_prop,},)
 
+
+#def submit_new_prop(request):
+#    if request.method == "POST":
+#        new_prop = NewProposal(data=request.POST)
+#        print('new_prop')
+#        if new_prop.is_valid():
+#            new_prop.save()
+#            messages.add_message(request, messages.SUCCESS, "Thanks for sharing your idea!")
+#            new_prop = NewProposal()
+#    return render(request, 'prop_for_3d/confirmation.html')
+
+#def new_prop(request):
+#    new_prop = NewProposal()
+#    return render(request, 'prop_for_3d/new_prop.html', {"new_prop": new_prop,},)
 
 def submit_new_prop(request):
     if request.method == "POST":
         new_prop = NewProposal(data=request.POST)
+        new_prop.slag = 'rrr'
+        print(new_prop)
         if new_prop.is_valid():
             new_prop.save()
             messages.add_message(request, messages.SUCCESS, "Thanks for sharing your idea!")
             new_prop = NewProposal()
-    return render(request, 'prop_for_3d/confirmation.html')
+            return redirect ('proposal')
+    
+    content = {"new_prop": NewProposal(),}
+    print(content)
+    return render (request, "prop_for_3d/new_prop.html", content)
+        
+        
