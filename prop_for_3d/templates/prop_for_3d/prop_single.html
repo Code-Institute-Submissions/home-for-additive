@@ -9,12 +9,21 @@
         <!--Here comes the page with the single proposal-->
         <div class="col">
             <div>{{ prop.student }} wrote:</div>
-            <br>      
+            <br>
             <div class="proposal">{{ prop.content }}</div>
             <br>
             <div class="created_on">{{ prop.created_on }}</div>
         </div>
-    </div>    
+    </div>
+    <div class="container-fluid button-position">
+        <button class="btn btn-secondary" type="button"><a href="{% url 'edit_prop' prop.slug  %}" target="_blank"
+                class="share-idea">Edit</a></button>
+        <button class="btn btn-dark"><a class="nav-link {% if request.path == logout_url %}active{% endif %} share-idea"
+                aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+        </button>
+    </div>
+    <br>
+
 </section>
 
 {% else %}
