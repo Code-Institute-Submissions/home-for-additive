@@ -8,7 +8,7 @@
     <div class="row no-gutters front-text-format">
         <!--Here comes the page with the single proposal-->
         <div class="col">
-            <div>{{ prop.student }} wrote:</div>
+            <div>{{ prop.student.first_name }} wrote:</div>
             <br>
             <div class="proposal">{{ prop.content }}</div>
             <br>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="container-fluid button-position">
-        <button class="btn btn-secondary" type="button"><a href="{% url 'update_prop' prop.pk  %}" target="_blank"
+        <button class="btn btn-secondary" type="button"><a href="#" target="_blank"
                 class="share-idea">Edit</a></button>
         <button class="btn btn-dark"><a class="nav-link {% if request.path == logout_url %}active{% endif %} share-idea"
                 aria-current="page" href="{% url 'account_logout' %}">Logout</a>

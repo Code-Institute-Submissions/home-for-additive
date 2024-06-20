@@ -21,13 +21,13 @@ On this page you can:<br>
 </div>
 <div class="entry-background">
 
-{% for prop in proposals %}
+{% for prop in object_list %}
 
 <div class="row no-gutters prop-overview">
     <br>
-    <div class="col-12 col-md-4"><a href="{% url 'prop_single' prop.slug %}"><strong>Topic: </strong>{{ prop.title }}</a></div>    
+    <div class="col-12 col-md-4"><a href="{% url 'prop_single' prop.pk %}"><strong>Topic: </strong>{{ prop.title }}</a></div>    
     <div class="col-12 col-md-4"><strong>Supmitted on: </strong>{{ prop.created_on }}</div>
-    <div class="col-12 col-md-4"><strong>Student: </strong>{{ prop.student }}</div>
+    <div class="col-12 col-md-4"><strong>Student: </strong>{{ prop.student.first_name }}</div>
 </div>
 <hr>
 
@@ -36,7 +36,7 @@ On this page you can:<br>
 {% if user.is_authenticated %}
 
 <div class="container-fluid button-position">
-<button class="btn btn-secondary" type="button"><a href="{% url 'submit_new_prop' %}" target="_blank" class="share-idea">Share your idea with us.</a></button>
+<button class="btn btn-secondary" type="button"><a href="{% url 'create_new' %}" target="_blank" class="share-idea">Share your idea with us.</a></button>
 <button class="btn btn-dark"><a class="nav-link {% if request.path == logout_url %}active{% endif %} share-idea" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
 </button>
 </div>
