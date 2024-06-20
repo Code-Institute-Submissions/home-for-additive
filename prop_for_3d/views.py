@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib import messages
+from django.views.generic import UpdateView
 from django.http import HttpResponseRedirect
 from .models import Prop
 from .forms import NewProposal
@@ -25,6 +26,11 @@ class PropList(generic.ListView):
     model = Prop
     queryset = Prop.objects.filter(status=1)
     template_name = "prop_for_3d/index.html"
+
+class UpdatePropView(UpdateView):
+    model = Prop
+    template_name = "prop_for_3d/update_prop.html"
+    fields = ('title', 'keywords', 'content', )
 
 
 def index(request):
@@ -101,7 +107,7 @@ def prop_single(request, slug):
 
     """
     queryset = Prop.objects.filter(status=1)
-    prop = get_object_or_404(queryset, slug=slug)
+    prop = get_object_or_404(queryset, slug)
     return render(
         request,
         'prop_for_3d/prop_single.html',
@@ -123,23 +129,34 @@ def submit_new_prop(request):
     """
     if request.method == "POST":
         new_prop = NewProposal(data=request.POST)
-        new_prop.slug = 'rrr' ## rrr - just testing
+        #new_prop.slug = 'rrr' ## rrr - just testing
         print(new_prop)
         if new_prop.is_valid():
             new_prop.save()
             messages.add_message(
                 request, messages.SUCCESS, "Thanks for sharing your idea!")
             new_prop = NewProposal()
-            return redirect('proposal')
+            return redirect('team')
 
     content = {"new_prop": NewProposal(), }
     print(content)
     return render(request, 'prop_for_3d/new_prop.html', content)
 
-
-def prop_edit(request, slug):
-    """    
-    """
+"""
+def prop_edit(request, slug):    
+    proposal = get_object_or_404(Prop, slug=slug)
+    if request.method == 'POST':
+        proposal.title = request.POST.get('title')
+        proposal.keywords = request.POST.get('keywords')
+        proposal.content = request.POST.get('content')
+        proposal.save()
+        return redirect('home')
+    context = {
+        'proposal':proposal
+    }
+    return render (request, 'edit_prop.html', context)
+        
+    
 
     if request.method == "POST":
         queryset = Prop.objects.filter(status=1)
@@ -156,3 +173,4 @@ def prop_edit(request, slug):
 
     #return HttpResponseRedirect(reverse('prop_single', args=[slug]))
     return redirect('proposal')
+    """

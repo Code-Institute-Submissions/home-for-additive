@@ -6,7 +6,7 @@
 
 {% load crispy_forms_tags %}
 
-<!-- Creating New Proposal -->
+<!-- Updade Proposal -->
 <br>
 <section>    
     <div class="container-flud">
@@ -14,12 +14,13 @@
             <div class="col col-md-6 offset-md-2 card">
 
                 {% if user.is_authenticated %}
-                <h3>Edit your proposal:</h3>
-                <p>Editins as: {{ user.username }}</p>
+                <h3>Write your idea here:</h3>
+                <p>Editing as: {{ user.username }}</p>
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                    {{ new_prop | crispy }} <!--N.b. Form name proposal or prop_form-->
+                    {{ new_prop | crispy }}
                     {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit edited</button>                    
+                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg"><!--<a href="{% url 'submit_new_prop' %}">Submit</a>-->Update</button>
+                    <!--POST method will be wired-up here.-->
                 </form>
                 
                 {% else %}
@@ -31,9 +32,4 @@
     </div>
 </section>
 
-
-
-<!--Back to the student portal - link -->
-
 {% endblock %}
-
