@@ -15,9 +15,14 @@
             <div class="created_on">{{ prop.created_on }}</div>
         </div>
     </div>
+
+{% if prop.student == user %}
+
     <div class="container-fluid button-position">
-        <button class="btn btn-secondary" type="button"><a href="#" target="_blank"
+        <button class="btn btn-secondary" type="button"><a href="{% url 'edit' prop.pk %}" target="_blank"
                 class="share-idea">Edit</a></button>
+        <button class="btn btn-warning" type="button"><a href="{% url 'delete' prop.pk %}" target="_blank"
+                class="share-idea">Delete</a></button>
         <button class="btn btn-dark"><a class="nav-link {% if request.path == logout_url %}active{% endif %} share-idea"
                 aria-current="page" href="{% url 'account_logout' %}">Logout</a>
         </button>
@@ -26,13 +31,16 @@
 
 </section>
 
+{% endif %}
+
 {% else %}
 
 <div class="row">
     <div class="col">
-        <p>You need to sign-in to view proposal content or submit your idea.</p>
+        <p>You need to sign-in to view proposal content or submit, edit or delete your idea.</p>
+        <button class="btn btn-light"><a href="{% url 'proposals' %}">Back</a></button>
 
-    </div>
+    </div>s
 </div>
 
 {% endif %}

@@ -6,7 +6,7 @@
 
 {% load crispy_forms_tags %}
 
-<!-- Creating New Proposal -->
+<!-- Editing (updating) Proposal -->
 <br>
 <section>    
     <div class="container-flud">
@@ -14,16 +14,17 @@
             <div class="col col-md-6 offset-md-2 card">
 
                 {% if user.is_authenticated %}
-                <h3>Write your idea here:</h3>
-                <p>Posting as: {{ user.username }}</p>
+                <h3>Delete proposal {{ prop.title }}</h3>
+                <p>Deleting as: {{ user.username }}</p>
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                    {{ form | crispy }}
+                    <!--{{ form | crispy }}-->
                     {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>                    
+                    <h3>You are about to delete your proposal. Please, make sure your idea is stored somewhere else.</h3>
+                    <button id="submitButton" type="submit" class="btn btn-danger btn-lg">Delete</button>
                 </form>
                 
                 {% else %}
-                <p>You need to be logged in to submit your idea.</p>
+                <p>You need to be logged in to submit, edit or delete your idea.</p>
                 {% endif %}
             </div>
 

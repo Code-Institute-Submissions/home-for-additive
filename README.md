@@ -31,6 +31,8 @@ The project must (will) provide the followith main capabilities:
 
 ## FEATURES
 
+## ACCESS LEVEL RESTRICTION
+
 ## TESTING
 
 ## DEPLOYMENT

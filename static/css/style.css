@@ -73,8 +73,6 @@ p {
     font-size: small;
 }
 
-
-
 /*----------Nav bar----------*/
 
 .no-padding {
@@ -200,7 +198,7 @@ a {
     padding-left: 20px;
 }
 
-/*----------Log in/out sign up buttons----------*/
+/*----------Log in/out sign up----------*/
 
 .share-idea {
     color: white;
