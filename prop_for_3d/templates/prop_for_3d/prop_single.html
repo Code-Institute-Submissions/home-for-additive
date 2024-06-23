@@ -4,11 +4,11 @@
 
 {% if user.is_authenticated %}
 
-<section class="section-bg">
+<div class="section-bg">
     <div class="row no-gutters front-text-format">
         <!--Here comes the page with the single proposal-->
         <div class="col">
-            <div>{{ prop.student.first_name }} wrote:</div>
+            <div>{{ prop.student }} wrote:</div>
             <br>
             <div class="proposal">{{ prop.content }}</div>
             <br>
@@ -18,18 +18,39 @@
 
 {% if prop.student == user %}
 
-    <div class="container-fluid button-position">
-        <button class="btn btn-secondary" type="button"><a href="{% url 'edit' prop.pk %}" target="_blank"
-                class="share-idea">Edit</a></button>
-        <button class="btn btn-warning" type="button"><a href="{% url 'delete' prop.pk %}" target="_blank"
-                class="share-idea">Delete</a></button>
-        <button class="btn btn-dark"><a class="nav-link {% if request.path == logout_url %}active{% endif %} share-idea"
+    <div class="row">
+        <div class="col-6 offset-1 container">
+            <a href="{% url 'edit' prop.pk %}" target="_blank"
+                class="share-idea btn btn-secondary">Edit</a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6 offset-1 container">
+            <a href="{% url 'delete' prop.pk %}" target="_blank"
+            class="share-idea btn btn-warning">Delete</a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6 offset-1 container">
+            <a class="{% if request.path == logout_url %}active{% endif %} share-idea btn btn-primary"
                 aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-        </button>
+        </div>
+    </div>
+
+
+    
+    
+    <div class="container-fluid button-position">
+        
+       
+                
+        
     </div>
     <br>
 
-</section>
+</div>
 
 {% endif %}
 

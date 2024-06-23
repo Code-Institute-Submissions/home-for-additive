@@ -10,51 +10,68 @@
 
 <!--Below is the overwiew of the most recently submitted students ideas-->
 <br>
-<h3 id="ideas-header" >Recent ideas<span class="material-symbols-outlined">lightbulb</span></h3>
+<h3 id="ideas-header">Recent ideas<span class="material-symbols-outlined">lightbulb</span></h3>
 <div class="ideas">
-<p>
-On this page you can:<br>
-    - Browse topics and autors of recently submitted proposal if you are not logged in and just searching for an inspiration.<br>
-    - Log in to be able to see the full text of ideas on the thrilling subject of  of your fellow students or share your own.<br>
-    - N.b. this an area where you can propose a project idea you would like to implement in the context of your study rather than a brainstorm zone.
-</p>
+    <p>
+        On this page you can:<br>
+        - Browse topics and autors of recently submitted proposal if you are not logged in and just searching for an
+        inspiration.<br>
+        - Log in to be able to see the full text of ideas on the thrilling subject of of your fellow students or share
+        your own.<br>
+        - N.b. this an area where you can propose a project idea you would like to implement in the context of your
+        study rather than a brainstorm zone.
+    </p>
 </div>
 <div class="entry-background">
 
-{% for prop in object_list %}
+    {% for prop in object_list %}
 
-<div class="row no-gutters prop-overview">
+    <div class="row no-gutters prop-overview">
+        <br>
+        <div class="col-12 col-md-4"><a href="{% url 'prop_single' prop.pk %}"><strong>Topic:
+                </strong>{{ prop.title }}</a></div>
+        <div class="col-12 col-md-4"><strong>Supmitted on: </strong>{{ prop.created_on }}</div>
+        <div class="col-12 col-md-4"><strong>Student: </strong>{{ prop.student }}</div>
+    </div>
+    <hr>
+
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+
+    
+        <div class="row">
+            <div class="col-6 offset-3 container">
+            <a href="{% url 'create_new' %}" target="_blank" class="share-idea btn btn-primary">Share your idea with
+                us.</a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6 offset-3 container">
+                <a class="{% if request.path == logout_url %}active{% endif %} share-idea btn btn-secondary"
+                aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+            </div>
+        </div>
+    
     <br>
-    <div class="col-12 col-md-4"><a href="{% url 'prop_single' prop.pk %}"><strong>Topic: </strong>{{ prop.title }}</a></div>    
-    <div class="col-12 col-md-4"><strong>Supmitted on: </strong>{{ prop.created_on }}</div>
-    <div class="col-12 col-md-4"><strong>Student: </strong>{{ prop.student.first_name }}</div>
-</div>
-<hr>
 
-{% endfor %}
+    {% else %}
 
-{% if user.is_authenticated %}
+    <div class="container-fluid button-position">
+        <button class="nav-item">
+            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                href="{% url 'account_signup' %}">Register</a>
+        </button>
+        <button class="nav-item">
+            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                href="{% url 'account_login' %}">Login</a>
+        </button>
 
-<div class="container-fluid button-position">
-<button class="btn btn-secondary" type="button"><a href="{% url 'create_new' %}" target="_blank" class="share-idea">Share your idea with us.</a></button>
-<button class="btn btn-dark"><a class="nav-link {% if request.path == logout_url %}active{% endif %} share-idea" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-</button>
-</div>
-<br>
-
-{% else %}
-<div class="container-fluid button-position">
-<button class="nav-item">
-	<a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-		href="{% url 'account_signup' %}">Register</a>
-</button>
-<button class="nav-item">
-	<a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-</button>
-
-</div>
-<br>
-{% endif %}
+    </div>
+    <br>
+    
+    {% endif %}
 
 </div>
 

@@ -1,13 +1,16 @@
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import Prop
 from django.urls import reverse_lazy
 
-
 # Classes for static pages:
+
 
 class HomeView(TemplateView):
     """
-    Render and show starting ('Home') page
+    Render and show starting ('Home') page.
+    **Template:**
+    :template:`prop_for_3d/index.html`
     """
     template_name = "prop_for_3d/index.html"
 
@@ -15,6 +18,8 @@ class HomeView(TemplateView):
 class TeamView(TemplateView):
     """
     Render and show 'Meet our team' page.
+     **Template:**
+    :template:`prop_for_3d/team.html`
     """
     template_name = "prop_for_3d/team.html"
 
@@ -22,6 +27,8 @@ class TeamView(TemplateView):
 class FacilityView(TemplateView):
     """
     Render and show 'Facility' page.
+     **Template:**
+    :template:`prop_for_3d/facility.html`
     """
     template_name = "prop_for_3d/facility.html"
 
@@ -32,18 +39,16 @@ class FacilityView(TemplateView):
 class PropsView(ListView):
     """
     Shows page with all proposals in the list.
-    Returns all published posts in :model:`blog.Post`
-    and displays them in a page of six posts.
+    Returns all published proposals in :model:`prop_for_3d.Prop`.
+    and displays them in a list page.
+    Not paginated.
     **Context**
-
     ``queryset``
-        All published instances of :model:`blog.Post`
+        All instances with 'submitted' status of :model:`prop_for_3d.Prop`.
     ``paginate_by``
-        Number of posts per page.
-
+        Not paginated.
     **Template:**
-
-    :template:`blog/index.html
+    :template:`prop_for_3d/proposals.html`
     """
     model = Prop
     template_name = "prop_for_3d/proposals.html"
@@ -51,7 +56,14 @@ class PropsView(ListView):
 
 class SingleView(DetailView):
     """
-    Shows page with a single selected idea proposal.
+    Shows page with a single selected idea proposal :model:`prop_for_3d.Prop`.
+    **Context**
+    ``queryset``
+        Instances with 'submitted' status and pk of :model:`prop_for_3d.Prop`.
+    ``paginate_by``
+        Not paginated.
+    **Template:**
+    :template:`prop_for_3d/prop_single.html`
     """
     model = Prop
     template_name = "prop_for_3d/prop_single.html"
@@ -59,17 +71,16 @@ class SingleView(DetailView):
 
 class CreatePropView(CreateView):
     """
-    Show a fillable form. The data can be stored in database as an entry.
+    View to create and submit a proposal.
     """
     model = Prop
-    template_name = "prop_for_3d/new_prop.html"    
+    template_name = "prop_for_3d/new_prop.html"
     fields = ('title', 'keywords', 'student', 'content')
-
 
 
 class UpdatePropView(UpdateView):
     """
-    Update existing proposal.
+    View to update and submit an updated proposal.
     """
     model = Prop
     template_name = "prop_for_3d/edit_prop.html"
@@ -78,11 +89,8 @@ class UpdatePropView(UpdateView):
 
 class DeletePropView(DeleteView):
     """
-    Delete selected proposal. Check if the user is authorised
+    View to delete proposal.
     """
     model = Prop
     success_url = reverse_lazy('proposals')
     template_name = "prop_for_3d/delete.html"
-
-
-

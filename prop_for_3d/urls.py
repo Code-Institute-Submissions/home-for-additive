@@ -1,6 +1,7 @@
 from . import views
 from django.urls import path
-from .views import HomeView, TeamView, FacilityView, PropsView, SingleView, CreatePropView, UpdatePropView, DeletePropView
+from .views import HomeView, TeamView, FacilityView, PropsView
+from .views import SingleView, CreatePropView, UpdatePropView, DeletePropView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
@@ -12,4 +13,3 @@ urlpatterns = [
     path('proposal/edit/<int:pk>', UpdatePropView.as_view(), name="edit"),
     path('proposal/delete/<int:pk>', DeletePropView.as_view(), name="delete"),
     ]
-

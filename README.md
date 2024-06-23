@@ -33,6 +33,8 @@ The project must (will) provide the followith main capabilities:
 
 ## ACCESS LEVEL RESTRICTION
 
+## VALIDATION
+
 ## TESTING
 
 ## DEPLOYMENT

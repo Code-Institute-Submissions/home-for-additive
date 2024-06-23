@@ -19,9 +19,16 @@
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
                     <!--{{ form | crispy }}-->
                     {% csrf_token %}
-                    <h3>You are about to delete your proposal. Please, make sure your idea is stored somewhere else.</h3>
+                    <h3>You are about to delete your proposal. Please, make sure your idea is stored somewhere else.
+                    </h3>
                     <button id="submitButton" type="submit" class="btn btn-danger btn-lg">Delete</button>
+                    <div class="row">
+                        <div class="col-6 offset-9 container">
+                            <a href="{% url 'proposals' %}" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </div>                
                 </form>
+                <br>
                 
                 {% else %}
                 <p>You need to be logged in to submit, edit or delete your idea.</p>
