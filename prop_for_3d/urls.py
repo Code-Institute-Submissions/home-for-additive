@@ -2,6 +2,7 @@ from . import views
 from django.urls import path
 from .views import HomeView, TeamView, FacilityView, PropsView
 from .views import SingleView, CreatePropView, UpdatePropView, DeletePropView
+from .views import DeleteConfirmView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
@@ -12,4 +13,9 @@ urlpatterns = [
     path('proposals/create_new', CreatePropView.as_view(), name="create_new"),
     path('proposal/edit/<int:pk>', UpdatePropView.as_view(), name="edit"),
     path('proposal/delete/<int:pk>', DeletePropView.as_view(), name="delete"),
+    path(
+        'delete/confirm_delete',
+        DeleteConfirmView.as_view(),
+        name="delete_confirm"
+        ),
     ]

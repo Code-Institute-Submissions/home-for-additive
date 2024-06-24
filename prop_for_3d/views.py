@@ -33,6 +33,15 @@ class FacilityView(TemplateView):
     template_name = "prop_for_3d/facility.html"
 
 
+class DeleteConfirmView(TemplateView):
+    """
+    Render and show 'Delete confirmation' page.
+     **Template:**
+    :template:`prop_for_3d/delete_confirm.html`
+    """
+    template_name = "prop_for_3d/delete_confirm.html"
+
+
 # Classes for pages with dynamic content:
 
 
@@ -92,5 +101,5 @@ class DeletePropView(DeleteView):
     View to delete proposal.
     """
     model = Prop
-    success_url = reverse_lazy('proposals')
+    success_url = reverse_lazy('delete_confirm')
     template_name = "prop_for_3d/delete.html"

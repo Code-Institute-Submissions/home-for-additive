@@ -8,6 +8,8 @@
     <div class="row no-gutters front-text-format">
         <!--Here comes the page with the single proposal-->
         <div class="col">
+            <p class="prop-overview">You are logged in as: {{ user.username }}</p>
+            <br>
             <div>{{ prop.student }} wrote:</div>
             <br>
             <div class="proposal">{{ prop.content }}</div>
@@ -20,15 +22,13 @@
 
     <div class="row">
         <div class="col-6 offset-1 container">
-            <a href="{% url 'edit' prop.pk %}" target="_blank"
-                class="share-idea btn btn-secondary">Edit</a>
+            <a href="{% url 'edit' prop.pk %}" target="_blank" class="share-idea btn btn-secondary">Edit</a>
         </div>
     </div>
     <br>
     <div class="row">
         <div class="col-6 offset-1 container">
-            <a href="{% url 'delete' prop.pk %}" target="_blank"
-            class="share-idea btn btn-warning">Delete</a>
+            <a href="{% url 'delete' prop.pk %}" target="_blank" class="share-idea btn btn-warning">Delete</a>
         </div>
     </div>
     <br>
@@ -37,17 +37,7 @@
             <a class="{% if request.path == logout_url %}active{% endif %} share-idea btn btn-primary"
                 aria-current="page" href="{% url 'account_logout' %}">Logout</a>
         </div>
-    </div>
-
-
-    
-    
-    <div class="container-fluid button-position">
-        
-       
-                
-        
-    </div>
+    </div>    
     <br>
 
 </div>
@@ -58,10 +48,11 @@
 
 <div class="row">
     <div class="col">
-        <p>You need to sign-in to view proposal content or submit, edit or delete your idea.</p>
-        <button class="btn btn-light"><a href="{% url 'proposals' %}">Back</a></button>
-
-    </div>s
+        <br>
+        <p class="prop-overview">You are logged out.</p>
+        <p class="prop-overview">Please, sign in.</p>
+        <p class="prop-overview"><a href="{% url 'proposals' %}" class="btn btn-primary">Back</a></p>
+    </div>
 </div>
 
 {% endif %}

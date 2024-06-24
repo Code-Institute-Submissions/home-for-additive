@@ -22,6 +22,8 @@ body {
     background-color:#b6dcde;
 }
 
+
+
 /*----------images----------*/
 
 .logo {
@@ -44,7 +46,31 @@ img {
     padding: 10px 30px 30px 20px;
     font-size: 18px;
     font-family: "Roboto", sans-serif;
+    text-align: justify;
     text-justify: inter-word;  
+}
+
+/*----------General----------*/
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.ideas {
+    padding: 20px;
+}
+
+.proposal {
+    padding: 10px;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.created_on {
+    font-size: small;
 }
 
 /*----------Nav bar----------*/
@@ -118,6 +144,7 @@ img {
 
 /*----------Footer----------*/
 
+
 .footer-item-marg {
     padding-left: 10px;
     padding-top: 10px;
@@ -144,8 +171,7 @@ a {
 }
 
 .copyright {
-    background-color: slateblue;
-    text-align: right;
+    background-color: slateblue;    
     color:whitesmoke;
     padding: 5px;
     font-size: 16px;
@@ -156,6 +182,7 @@ a {
 
 .copyright p {
     margin: 0;
+    text-align: right;
 }
 
 #ideas-header {
@@ -170,6 +197,17 @@ a {
 .prop-overview {
     font-family: "Roboto", sans-serif;
     padding-left: 20px;
+}
+
+/*----------Log in/out sign up----------*/
+
+.share-idea {
+    color: white;
+}
+
+
+button {
+    margin: 10px;
 }
 
 

@@ -39,25 +39,25 @@
 
     {% if user.is_authenticated %}
 
-    
-        <div class="row">
-            <div class="col-6 offset-3 container">
+    <p class="prop-overview">You are logged in as: {{ user.username }}</p>
+    <div class="row">
+        <div class="col-6 offset-3 container">
             <a href="{% url 'create_new' %}" target="_blank" class="share-idea btn btn-primary">Share your idea with
                 us.</a>
-            </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-6 offset-3 container">
-                <a class="{% if request.path == logout_url %}active{% endif %} share-idea btn btn-secondary"
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6 offset-3 container">
+            <a class="{% if request.path == logout_url %}active{% endif %} share-idea btn btn-secondary"
                 aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-            </div>
         </div>
-    
+    </div>
     <br>
 
     {% else %}
 
+    <p class="prop-overview">You are logged out</p>
     <div class="container-fluid button-position">
         <button class="nav-item">
             <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"

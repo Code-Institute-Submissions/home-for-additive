@@ -11,10 +11,10 @@ Welcome to the 'Home for 3D' project. The projecs is the platform presenting inf
 
 The following tools were used during the project setup and development
 - Static frontend: HTML, CSS, JavaScript
-- Backend:
-- Relational database:
-- Frameworks:
-- Libraries:
+- Backend: Python
+- Relational database: PostreSQL
+- Frameworks: Django
+- Libraries: Bootstrap, Google Fonts
 
 
 ## USER STORIES PROJECT REQUIREMENTS
@@ -30,10 +30,58 @@ The project must (will) provide the followith main capabilities:
 - The platform will provide a channel for informal communication (e.g. will be able to enquire regarding current status of an experiment, planned/unforeseen equipment maintenance and downtime, etc.)
 
 ## FEATURES
+The ingormative part describes the research group focusing of 3D metal printing. Therefore, it was decide to select cold, gray-ish color theme resembling the color of metal powder used for the process. The layout is responsive, depending on the device you use to access the content.
+### Template
+#### 1. Navbar
+![Navbar-large-screen]()<br>
+Navigation bar on a regular pc screen.<br>
+![Navbar-mobile-device]()<br>
+Navigation bar on a mobile device.<br>
+Navigation bar allows to navigate between:
+- Home
+- Team
+- Facility
+- For students<br>
+tabs.
+#### 2. Footer
+![Footer-large]()<br>
+Footer on tegular pc screen<br>
+![Footer-mobile-device]()<br>
+Footer bar on a mobile device.<br>
+Footer contains brief description of the Group, useful links and 'further reading' link.
+### Content
+#### 1. Static content
+Home, Team, Facility tabs: information about the group, expertise and available lab equipment.
+#### 2. Dinamic content
+Tab student will take you to the list of submitted proposals (also responsive).
+
+
+## STRUCTURE
+1. Home<br>
+External links:<br>
+ - Further reading
+ - Youtube
+ - University (Home)
+ - Wikipedia<br>
+2. Team<br>
+Same external links as above via template.
+3. Facility<br>
+Same external links as above via template.
+4. For Students<br>
+
+
+## DATA MODEL
+
 
 ## ACCESS LEVEL RESTRICTION
+- Access to an informative part of the site and see the titles and student names: any visitor.
+- Access to full text of all proposals: any registered and logged in student.
+- Submit, edit and delete proposals: a particular student under his own credentials.
 
 ## VALIDATION
+HTML, CSS, Python and JS files were validated using W3C, Jigsaw, PEP8 CI Linter and jshint (respectively). Validation tests passed with no errors or warnings. The testable html code was accessed from renderred pages using the Ctrl-U key. The code then was copied into the direct input textfield of W3C validator.
+
+## LIGHTHOUSE
 
 ## TESTING
 
@@ -42,6 +90,7 @@ The project must (will) provide the followith main capabilities:
 ## FUTURE WORK
 
 ### Acknowledgement
+The code was written and debugged using the desktop version of VS Code
 
 ==================================================================
 
