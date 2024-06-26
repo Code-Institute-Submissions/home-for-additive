@@ -23,4 +23,4 @@ class Prop(models.Model):
         return self.title + ' | ' + str(self.student)
 
     def get_absolute_url(self):
-        return reverse('proposals')
+        return reverse('create_edit_confirm')

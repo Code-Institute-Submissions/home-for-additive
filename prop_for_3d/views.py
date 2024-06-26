@@ -33,6 +33,15 @@ class FacilityView(TemplateView):
     template_name = "prop_for_3d/facility.html"
 
 
+class CreateEditConfirm(TemplateView):
+    """
+    Render and show 'Update confirmation' page.
+     **Template:**
+    :template:`prop_for_3d/update_confirm.html`
+    """
+    template_name = "prop_for_3d/create_edit_confirm.html"
+
+
 class DeleteConfirmView(TemplateView):
     """
     Render and show 'Delete confirmation' page.

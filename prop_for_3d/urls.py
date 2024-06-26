@@ -2,7 +2,7 @@ from . import views
 from django.urls import path
 from .views import HomeView, TeamView, FacilityView, PropsView
 from .views import SingleView, CreatePropView, UpdatePropView, DeletePropView
-from .views import DeleteConfirmView
+from .views import DeleteConfirmView, CreateEditConfirm
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
@@ -17,5 +17,10 @@ urlpatterns = [
         'delete/confirm_delete',
         DeleteConfirmView.as_view(),
         name="delete_confirm"
+        ),
+    path(
+        'create_edit/confirm',
+        CreateEditConfirm.as_view(),
+        name="create_edit_confirm"
         ),
     ]
