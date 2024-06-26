@@ -71,21 +71,23 @@ Same external links as above via template.
 4. For Students<br>
 List of proposed ideas<br>
 Options: log in or sign in:<br>
-![Logged-out user](./static/images/log-in-invite.jpg)<br>
+![Logged-out user](./static/images/log-in-invite.jpg)<br><br>
 If logged in or signed in:<br>
 a. Can see any proposal
 b. Can submit, edit and delete your own proposal<br>
+![data-form](./static/images/proposal-form.jpg)<br>
+Form for proposal submission/edit<br><br>
 c. Log in status is shown<br>
-![data-form]()<br>
-Form for proposal submission/edit<br>
+![log-in_status](./static/images/log-in-status.jpg)<br>
+![log-in_status](./static/images/log-in-status-1.jpg)<br><br>
 If 'Delete proposal' option is selected, the user has a chance to confirm:<br>
-![delete-confirm]()<br>
-If the user creates or changes a proposal, notification message is shown and the user can navigate back to the list page.
-![data-change-confirm]()<br>
+![delete-confirm](./static/images/delete-confirmation.jpg)<br><br>
+If the user creates or changes a proposal, notification message is shown and the user can navigate back to the list page:<br>
+![data-change-confirm](./static/images/create_edit_confirm.jpg)<br>
 
 ## DATA MODEL
 The database table (model) describing the structure of submitted proposals are shown below.<br>
-![data-model structure]()
+![data-model structure](./static/images/db-table.jpg)
 
 
 ## ACCESS LEVEL RESTRICTION
@@ -99,9 +101,8 @@ HTML, CSS, Python and JS files were validated using W3C, Jigsaw, PEP8 CI Linter 
 ## LIGHTHOUSE
 
 ## MANUAL TESTING
+![test](./static/images/testing.jpg)
 
-
-### Responsiveness test
 
 ## DEPLOYMENT
 The project was deployed on [heroku.com](www.heroku.com). After creating the user account the following steps were undertaken to deploy the project.
