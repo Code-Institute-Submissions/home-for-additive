@@ -2,7 +2,7 @@
 
 
 # HOME FOR 3D
-![responsivity overview]()<br>
+![responsivity overview](./static/images/responsivity.jpg)<br>
 
 ## INTRODUCTION
 
@@ -34,10 +34,10 @@ The project must (will) provide the followith main capabilities:
 The ingormative part describes the research group focusing of 3D metal printing. Therefore, it was decide to select cold, gray-ish color theme resembling the color of metal powder used for the process. The layout is responsive, depending on the device you use to access the content.
 ### Template
 #### 1. Navbar
-![Navbar-large-screen]()<br>
-Navigation bar on a regular pc screen.<br>
-![Navbar-mobile-device]()<br>
-Navigation bar on a mobile device.<br>
+![Navbar-large-screen](./static/images/nav-bar-large.jpg)<br>
+Navigation bar on a regular pc screen.<br><br>
+![Navbar-mobile-device](./static/images/nav-bar-mobile.jpg)<br>
+Navigation bar on a mobile device.<br><br>
 Navigation bar allows to navigate between:
 - Home
 - Team
@@ -45,9 +45,9 @@ Navigation bar allows to navigate between:
 - For students<br>
 tabs.
 #### 2. Footer
-![Footer-large]()<br>
-Footer on tegular pc screen<br>
-![Footer-mobile-device]()<br>
+![Footer-large](./static/images/footer-large.jpg)<br>
+Footer on tegular pc screen<br><br>
+![Footer-mobile-device](./static/images/footer-mobile.jpg)<br>
 Footer bar on a mobile device.<br>
 Footer contains brief description of the Group, useful links and 'further reading' link.
 ### Content
@@ -71,7 +71,7 @@ Same external links as above via template.
 4. For Students<br>
 List of proposed ideas<br>
 Options: log in or sign in:<br>
-![Logged-out user]()<br>
+![Logged-out user](./static/images/log-in-invite.jpg)<br>
 If logged in or signed in:<br>
 a. Can see any proposal
 b. Can submit, edit and delete your own proposal<br>
