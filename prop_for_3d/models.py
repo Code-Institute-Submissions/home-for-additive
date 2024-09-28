@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 STATUS = ((0, "Draft"), (1, "Submitted"))
+OPTIONS = (('Approved', 'Approved'), ('Decline', 'Decline'), ('-','-'))
 
 
 class Prop(models.Model):
@@ -14,7 +15,11 @@ class Prop(models.Model):
         User, on_delete=models.CASCADE, related_name="proposals")
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=1)
+    status = models.IntegerField(choices=STATUS, default=1) # remove
+    supervisor = models.ForeignKey('Supervisor', on_delete=models.SET_NULL, blank=True, null=True)
+    approval = models.CharField(choices=OPTIONS, max_length=15, default='-')
+    comments = models.TextField(blank=True, null=True)
+    
 
     class Meta:
         ordering = ["-created_on"]
@@ -24,3 +29,10 @@ class Prop(models.Model):
 
     def get_absolute_url(self):
         return reverse('create_edit_confirm')
+
+class Supervisor(models.Model):
+    manager = models.ForeignKey(User, on_delete=models.CASCADE, related_name='supervisors_feedback')
+    full_name = models.CharField(max_length=150)
+        
+    def __str__(self) -> str:
+        return self.full_name
