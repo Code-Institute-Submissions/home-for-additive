@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Display the Proposal (submitted by the student) -->
+    <h1>{{ proposal.title }}</h1>
+    <p><strong>Submitted by:</strong> {{ proposal.student.username }}</p>
+    <p><strong>Keywords:</strong> {{ proposal.keywords }}</p>
+    <p><strong>Content:</strong></p>
+    <p>{{ proposal.content }}</p>
+
+    <hr>
+
+    {% if already_assessed %}
+        <h2>This proposal has already been assessed.</h2>
+        <p><strong>Status:</strong> {{ proposal.assessment.approved }}</p>
+        <p><strong>Comments:</strong> {{ proposal.assessment.content }}</p>
+    {% else %}
+        <!-- Supervisor Assessment Form -->
+        <h2>Supervisor Assessment</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Display the assessment form (content and approval dropdown) -->
+            <button type="submit" class="btn btn-primary">Submit Assessment</button>
+        </form>
+    {% endif %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

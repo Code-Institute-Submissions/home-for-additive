@@ -8,7 +8,14 @@
     <div class="row no-gutters front-text-format">
         <!--Here comes the page with the single proposal-->
         <div class="col">
-            <p class="prop-overview">You are logged in as: {{ user.username }}</p>
+            <div class="row mt-3">
+                <div class="col-6 d-flex justify-content-start">
+                    <!-- Back to list button -->
+                    <a href="{% url 'proposals' %}" class="share-idea btn btn-secondary me-2">Back to List</a>
+                    <!-- Assessor button -->
+                    <a href="{% url 'proposal_assessment' prop.pk %}" target="_blank" class="share-idea btn btn-primary">If you are an ASSESSOR</a>
+                </div>
+            </div>                      
             <br>
             <div>{{ prop.student }} wrote:</div>
             <br>
@@ -16,30 +23,18 @@
             <br>
             <div class="created_on">{{ prop.created_on }}</div>
         </div>
-    </div>
+    </div>    
+    <br>
 
 {% if prop.student == user %}
 
-    <div class="row">
-        <div class="col-6 offset-1 container">
-            <a href="{% url 'edit' prop.pk %}" target="_blank" class="share-idea btn btn-secondary">Edit</a>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-6 offset-1 container">
+    <div class="row mt-3"></div>
+        <div class="col-6 offset-1 d-flex justify-content-start">
+            <a href="{% url 'edit' prop.pk %}" target="_blank" class="share-idea btn btn-secondary me-2">Edit</a>
             <a href="{% url 'delete' prop.pk %}" target="_blank" class="share-idea btn btn-warning">Delete</a>
         </div>
     </div>
     <br>
-    <div class="row">
-        <div class="col-6 offset-1 container">
-            <a class="{% if request.path == logout_url %}active{% endif %} share-idea btn btn-primary"
-                aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-        </div>
-    </div>    
-    <br>
-
 </div>
 
 {% endif %}

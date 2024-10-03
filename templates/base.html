@@ -20,6 +20,38 @@
             <a href="{% url 'home' %}" class="col-md-4 logo" title="HOME"></a>
             <div class="col-md-8">
                 <div class="row no-gutters">
+                    
+{% if user.is_authenticated %}
+
+                    <div class="row mt-3 me-3 mb-3">
+                        <div class="col-12 d-flex flex-column align-items-end">
+                            <!-- Username display -->
+                            <p class="prop-overview">You are logged in as: <b>{{ user.username }}</b></p>
+                            <!-- Logout button -->
+                            <a class="{% if request.path == logout_url %}active{% endif %} share-idea btn btn-secondary"
+                                aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+                        </div>
+                    </div>
+                    <br>
+
+{% else %}
+
+                    <div class="row mt-3 me-3 mb-3">
+                        <div class="col-12 d-flex flex-column align-items-end">
+                            <p class="prop-overview">You are <b>logged out</b></p>
+                            <button class="nav-item">
+                            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                                    href="{% url 'account_signup' %}">Register</a>
+                            </button>
+                            <button class="nav-item">
+                            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                                    href="{% url 'account_login' %}">Login</a>
+                            </button>
+                        </div>
+                    </div>
+                    <br>
+
+{% endif %}
                     <div class="col heading">
                         <h1 class="title">HOME FOR 3D METAL PRINTING</h1>
                         <h2 class="title">University of Portsmouth</h2>
@@ -67,7 +99,7 @@
             <div class="col-sm-4 footer-item-marg">
                 <h5 class="uppercase general-sub">About the team</h5>
                 <p class="inline-block">
-                    We design, optimise and manufacture 3D functional structures and coatings using metals 3D printint techniques with minimised post processing steps. We seek to establish academic and commercial collaborations on surface engineering and additive manufacturing in aerospace, automotive, marine and medical sectors.
+                    We design, optimise and manufacture 3D functional structures and coatings using metals 3D printing techniques with minimised post processing steps. We seek to establish academic and commercial collaborations on surface engineering and additive manufacturing in aerospace, automotive, marine and medical sectors.
                 </p>
             </div>
             <div class="col-sm-4 footer-item-marg">
@@ -109,7 +141,6 @@
             <p>By DrSYakovlev, June 2024<br><strong>DISCLAIMER: THIS IS AN UNOFFICIAL SITE OF THE TEAM. THE SITE IS BUILT FOR THE TRAINING PURPOSE ONLY AND CANNOT BE USED AT PRESENT AS AN OFFICIAL PLATFORM.</strong></p>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 </body>
 </html>

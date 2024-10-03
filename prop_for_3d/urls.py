@@ -2,7 +2,7 @@ from . import views
 from django.urls import path
 from .views import HomeView, TeamView, FacilityView, PropsView
 from .views import SingleView, CreatePropView, UpdatePropView, DeletePropView
-from .views import DeleteConfirmView, CreateEditConfirm
+from .views import DeleteConfirmView, CreateEditConfirm, ProposalAssessmentView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
@@ -23,4 +23,5 @@ urlpatterns = [
         CreateEditConfirm.as_view(),
         name="create_edit_confirm"
         ),
+    path('proposal/<int:pk>/assessment', ProposalAssessmentView.as_view(), name='proposal_assessment')
     ]

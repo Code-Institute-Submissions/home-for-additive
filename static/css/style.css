@@ -237,7 +237,8 @@ button {
 
 @media only screen and (max-width: 768px) {
     img {
-        width: 30%;
+        width: 125%;
+        padding-right: 20px;
     }
 }
 

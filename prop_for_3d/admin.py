@@ -5,15 +5,12 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Prop)
 class PropAdmin(SummernoteModelAdmin):
-
     list_display = (
         'title',
-        'status',
         'keywords',
-        'email',
         'student',
-        'content',
-        'created_on',)
-    search_fields = ['title', 'keywords', 'student', ]
-    list_filter = ('status', 'created_on',)
-    summernote_fields = ('content',)
+        'created_on',  # Removed 'status' and 'email'
+    )
+    search_fields = ['title', 'keywords', 'student__username']  # Search by student username, not the whole object
+    list_filter = ('created_on',)  # Removed 'status'
+    summernote_fields = ('content',)  # Keep this as it is for content editing

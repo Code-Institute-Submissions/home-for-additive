@@ -46,8 +46,15 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/proposals'
 LOGOUT_REDIRECT_URL = '/'
+
+# Django Allauth settings
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'  # Redirect to login after logout
+ACCOUNT_EMAIL_REQUIRED = True  # Makes email required in sign-up form
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Allows users to log in using username or email
+ACCOUNT_SIGNUP_REDIRECT_URL = '/proposals'  # Where to redirect after successful sign-up (optional)
+
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -125,6 +132,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_EMAIL_REQUIRED = True  # Makes email required in Allauth
+ACCOUNT_UNIQUE_EMAIL = True    # Ensures each email is unique
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
