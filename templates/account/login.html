@@ -10,12 +10,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
+            <h3>{% trans "Log In" %}</h3>
 
-            <p>{% blocktrans %}Welcome back to the proposal management system. To leave a comment or like a post, please log in. If
-                you
-                have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
+            <p>{% blocktrans %}Welcome back to the proposal management portal. <hr> To submit your proposal view full text proposals of your fellow students or live your assessment (if you are a supervisor), please log in.<hr>If you have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
+                first.{% endblocktrans %}<hr></p>
         </div>
     </div>
     <div class="row">
@@ -26,7 +24,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn btn-primary right" type="submit">{% trans "Log In" %}</button>
             </form>
         </div>
     </div>

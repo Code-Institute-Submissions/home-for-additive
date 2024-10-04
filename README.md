@@ -146,3 +146,33 @@ This project was intended as fully functioning platform for communication, proje
 ### Acknowledgement
 The code was written and debugged using the desktop version of VS Code. The aurthor thanks the School of Mechanical Engineering, University of Portsmouth for providing textual and picrorial content and the Code Institute for providing the template.
 
+<hr>
+<hr>
+
+## HOME FOR 3D - REVISED
+
+### User experience
+In the revised version of the Project, the user experience was improved by:
+1. Introducing the indicator of the log-in status of the current user (added to the  global base.html template):
+
+![you are logged out](./static/images/you_are_logged_out.jpg)
+![you are logged in](./static/images/you_are_logged_in.jpg)
+
+2. Improved log-in form formatting:
+
+![log in invite](./static/images/log_in.jpg)
+
+### Data model update
+
+
+
+### Bugs fixed in the revised project
+Solved the issue with image size transition discontinuity at 768 px (images could not be shown on 'team' and 'facility' pages at the transition between 'small' and 'medium')
+
+Fixed the bug associated with a custom script.js file (Uncaught [TypeError](#bugs-found-after-deployment))
+
+
+
+
+
+
