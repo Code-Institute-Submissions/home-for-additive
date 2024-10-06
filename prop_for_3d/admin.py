@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Prop
+from .models import Prop, Assessment
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -9,8 +9,11 @@ class PropAdmin(SummernoteModelAdmin):
         'title',
         'keywords',
         'student',
-        'created_on',  # Removed 'status' and 'email'
+        'created_on',
     )
-    search_fields = ['title', 'keywords', 'student__username']  # Search by student username, not the whole object
-    list_filter = ('created_on',)  # Removed 'status'
-    summernote_fields = ('content',)  # Keep this as it is for content editing
+    search_fields = ['title', 'keywords', 'student__username']
+    list_filter = ('created_on',)
+    summernote_fields = ('content',)
+    
+
+admin.site.register(Assessment)

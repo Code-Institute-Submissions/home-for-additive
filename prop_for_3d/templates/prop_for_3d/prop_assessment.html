@@ -1,34 +1,58 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Display the Proposal (submitted by the student) -->
-    <h1>{{ proposal.title }}</h1>
-    <p><strong>Submitted by:</strong> {{ proposal.student.username }}</p>
-    <p><strong>Keywords:</strong> {{ proposal.keywords }}</p>
-    <p><strong>Content:</strong></p>
-    <p>{{ proposal.content }}</p>
-
-    <hr>
-
-    {% if already_assessed %}
-        <h2>This proposal has already been assessed.</h2>
-        <p><strong>Status:</strong> {{ proposal.assessment.approved }}</p>
-        <p><strong>Comments:</strong> {{ proposal.assessment.content }}</p>
-    {% else %}
-        <!-- Supervisor Assessment Form -->
-        <h2>Supervisor Assessment</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}  <!-- Display the assessment form (content and approval dropdown) -->
-            <button type="submit" class="btn btn-primary">Submit Assessment</button>
-        </form>
-    {% endif %}
-
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-success" role="alert">
-                {{ message }}
+<!-- Display the Proposal (submitted by the student) -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h3>Proposal: {{ proposal.title }}</h3>
+            <p><strong>Submitted by:</strong> {{ proposal.student.username }}</p>
+            <p><strong>Keywords:</strong> {{ proposal.keywords }}</p>
+            <p><strong>Content:</strong></p>
+            <div class="content-box p-3 bg-light rounded">
+                <p>{{ proposal.content }}</p>
             </div>
-        {% endfor %}
-    {% endif %}
+        </div>
+    </div>
+</div>
+<hr>
+{% if already_assessed %}     
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4>This proposal has already been assessed with the result:</h4>
+            <div class="assessment-box p-3 bg-light rounded">
+                <p><strong>Status:</strong> {{ proposal.assessment.approved }}</p>
+                <p><strong>Comments:</strong> {{ proposal.assessment.content }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}       
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3>Supervisor Assessment</h3>
+                    <div class="assessment-form-box p-4 bg-light rounded">
+                        <form method="post">                                                       
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="text-center mt-3">
+                                <button type="submit" class="btn btn-primary">Submit Assessment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+        
+
+
+
+{% endif %}
+
 {% endblock %}

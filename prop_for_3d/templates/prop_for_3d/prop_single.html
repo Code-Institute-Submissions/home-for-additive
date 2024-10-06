@@ -17,10 +17,10 @@
                 </div>
             </div>                      
             <br>
-            <div>{{ prop.student }} wrote:</div>
-            <br>
+            <div><b>{{ prop.student }}</b> wrote:</div>
+            <hr>
             <div class="proposal">{{ prop.content }}</div>
-            <br>
+            <hr>
             <div class="created_on">{{ prop.created_on }}</div>
         </div>
     </div>    
@@ -28,6 +28,7 @@
 
 {% if prop.student == user %}
 
+<div>    
     <div class="row mt-3"></div>
         <div class="col-6 offset-1 d-flex justify-content-start">
             <a href="{% url 'edit' prop.pk %}" target="_blank" class="share-idea btn btn-secondary me-2">Edit</a>
@@ -41,12 +42,14 @@
 
 {% else %}
 
-<div class="row">
-    <div class="col">
+<div class="container d-flex justify-content-center align-items-center"></div>
+    <div class="text-center">
         <br>
-        <p class="prop-overview">You are logged out.</p>
-        <p class="prop-overview">Please, sign in.</p>
-        <p class="prop-overview"><a href="{% url 'proposals' %}" class="btn btn-primary">Back</a></p>
+        <h5 class="prop-overview ">You are logged out</h5>
+        <br>
+        <a href="{% url 'proposals' %}" class="btn btn-primary">Back to list</a>
+        <hr>
+        <br>
     </div>
 </div>
 

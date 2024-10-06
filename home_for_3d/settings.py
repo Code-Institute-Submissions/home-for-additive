@@ -13,18 +13,20 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%*ly#4w0$!ef0plam8i6fkgedxbe88tz0fm^o6uiq7&f!_$(7#'
+SECRET_KEY = (
+    'django-insecure-%*ly#4w0$!ef0plam8i6fkgedxbe88tz0fm^o6uiq7&f!_$(7#')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'http://8000-drsyakovlev-homeforaddi-abht9tq6lv8.ws-us114.gitpod.io/',
                  'localhost',
                  '.herokuapp.com'
                  ]
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-drsyakovlev-homeforaddi-abht9tq6lv8.ws-eu114.gitpod.io',]
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-drsyakovlev-homeforaddi-abht9tq6lv8.ws-eu114.gitpod.io',
+    ]
 
 # Application definition
 
@@ -50,10 +52,13 @@ LOGIN_REDIRECT_URL = '/proposals'
 LOGOUT_REDIRECT_URL = '/'
 
 # Django Allauth settings
-ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'  # Redirect to login after logout
+ACCOUNT_LOGOUT_REDIRECT_URL = (
+    '/accounts/login/')  # Redirect to login after logout
 ACCOUNT_EMAIL_REQUIRED = True  # Makes email required in sign-up form
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Allows users to log in using username or email
-ACCOUNT_SIGNUP_REDIRECT_URL = '/proposals'  # Where to redirect after successful sign-up (optional)
+ACCOUNT_AUTHENTICATION_METHOD = (
+    'username_email')  # Allows users to log in using username or email
+ACCOUNT_SIGNUP_REDIRECT_URL = (
+    '/proposals')  # Where to redirect after successful sign-up (optional)
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -116,25 +121,40 @@ CSRF_TRUSTED_ORIGINS = [
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
+# Define the password validators as variables
+user_attr_validator = (
+    'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
+)
+min_length_validator = (
+    'django.contrib.auth.password_validation.MinimumLengthValidator'
+)
+common_password_validator = (
+    'django.contrib.auth.password_validation.CommonPasswordValidator'
+)
+numeric_password_validator = (
+    'django.contrib.auth.password_validation.NumericPasswordValidator'
+)
+
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': user_attr_validator},
+    {'NAME': min_length_validator},
+    {'NAME': common_password_validator},
+    {'NAME': numeric_password_validator},
 ]
+
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+"""
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_USERNAME")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+"""
 ACCOUNT_EMAIL_REQUIRED = True  # Makes email required in Allauth
 ACCOUNT_UNIQUE_EMAIL = True    # Ensures each email is unique
 
@@ -155,7 +175,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type

@@ -151,6 +151,13 @@ The code was written and debugged using the desktop version of VS Code. The aurt
 
 ## HOME FOR 3D - REVISED
 
+### Updateon user stories
+
+'Single proposal' page now has added 'If you are an ASSESSOR' button:
+![if you are an assessor](./static/images/single_proposal_lorem.jpg)
+Which will take an assessor/supervisor to the commenting/marking page:
+
+
 ### User experience
 In the revised version of the Project, the user experience was improved by:
 1. Introducing the indicator of the log-in status of the current user (added to the  global base.html template):
@@ -162,7 +169,29 @@ In the revised version of the Project, the user experience was improved by:
 
 ![log in invite](./static/images/log_in.jpg)
 
+3. Improved 'confirm deletion' form formatting:
+
+![cancel delete](./static/images/delete_proposal_confirm.jpg)
+
+4. The app shows clear messages when proposal is created, updated or deleted:
+
+![proposal is saved](./static/images/proposal_is_saved.jpg)
+![proposal is deleted](./static/images/proposal_is_deleted.jpg)
+
+
+5. Navigation through the app is improved:
+- The user now stays in 'For students' portal, instead of constantly being redirected to the 'home' page.
+
+
 ### Data model update
+
+### Testing
+
+### Validation
+
+### Performance
+
+### Conclusions and future work
 
 
 

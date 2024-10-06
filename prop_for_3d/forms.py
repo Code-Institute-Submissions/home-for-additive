@@ -3,6 +3,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+
 class NewProposal(forms.ModelForm):
     class Meta:
         model = Prop
@@ -13,6 +14,14 @@ class CommentOnProp(forms.ModelForm):
     class Meta:
         model = Assessment
         fields = ('content', 'approved')
+        widgets = {
+            'content': forms.Textarea(attrs={
+                'class': 'form-control',
+                'style': 'width: 100%; max-width: 100%; min-width: 260px;',
+                'rows': 5,
+            }),
+            'approved': forms.Select(attrs={'class': 'form-control-sm'}),
+        }
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -24,9 +33,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.email = self.cleaned_data['email']  # Save the provided email
+        user.email = self.cleaned_data['email']
         if commit:
             user.save()
         return user
-
-        

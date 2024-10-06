@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormMixin
+from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import DeleteView, FormMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Prop, Assessment
 from .forms import CommentOnProp, NewProposal, CustomUserCreationForm
@@ -100,10 +101,9 @@ class CreatePropView(CreateView):
     """
     model = Prop
     template_name = "prop_for_3d/new_prop.html"
-    fields = ('title', 'keywords', 'content')  # Removed 'student' from the fields
+    fields = ('title', 'keywords', 'content')
 
     def form_valid(self, form):
-        # Automatically assign the logged-in user as the student
         form.instance.student = self.request.user
         return super().form_valid(form)
 
@@ -126,8 +126,6 @@ class DeletePropView(DeleteView):
     template_name = "prop_for_3d/delete.html"
 
 
-# Assessor's view for viewing a proposal and submitting an assessment
-
 class ProposalAssessmentView(FormMixin, DetailView):
     model = Prop
     template_name = "prop_for_3d/prop_assessment.html"
@@ -140,9 +138,8 @@ class ProposalAssessmentView(FormMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         try:
-            # Check if an assessment already exists
             assessment = self.object.assessment
-            context['already_assessed'] = True  # Use this flag in the template to show a message
+            context['already_assessed'] = True
         except Assessment.DoesNotExist:
             context['form'] = self.get_form()
             context['already_assessed'] = False
@@ -153,7 +150,8 @@ class ProposalAssessmentView(FormMixin, DetailView):
         try:
             # Check if an assessment already exists
             assessment = self.object.assessment
-            messages.error(self.request, "This proposal has already been assessed.")
+            messages.error(
+                self.request, "This proposal has already been assessed.")
             return redirect('prop_single', pk=self.object.pk)
         except Assessment.DoesNotExist:
             form = self.get_form()
@@ -169,12 +167,18 @@ class ProposalAssessmentView(FormMixin, DetailView):
         assessment.save()
 
         # Send the email to the student
-        subject = f"Proposal {self.object.title} has been {assessment.approved}"
+        subject = (
+            f"Proposal {self.object.title} has got "
+            f"the status: '{assessment.approved}'"
+        )
         message = (
             f"Dear {self.object.student.username},\n\n"
-            f"Your proposal titled '{self.object.title}' has been {assessment.approved} by {assessment.supervisor.username}.\n\n"
+            f"Your proposal titled '{self.object.title}' has got "
+            f"status: '{assessment.approved}' by "
+            f"{assessment.supervisor.username}.\n\n"
             f"Comments:\n{assessment.content}\n\n"
-            f"If you have any questions, feel free to contact your supervisor at: {assessment.supervisor.email}\n\n"
+            f"If you have any questions, feel free to contact your "
+            f"supervisor at: {assessment.supervisor.email}\n\n"
             "Best regards,\nThe Supervisory Team"
         )
 
@@ -195,26 +199,12 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Automatically log in the user after registration
-            return redirect('proposals')  # Redirect to some home page
-        else:
-            # This will show any errors in form validation
-            print(form.errors)  # You can check server logs for any issues
-    else:
-        form = CustomUserCreationForm()
-
-    return render(request, 'registration/register.html', {'form': form})
-
-"""
-def register(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
             login(request, user)
-            return redirect('home')  # Redirect to some page after registration
+            return redirect('proposals')
+        else:
+            print(form.errors)
     else:
+        raise Exception('Error happened')
         form = CustomUserCreationForm()
-    return render(request, 'registration/register.html', {'form': form})
-"""
 
+    return render(request, 'registration/register.html', {'form': form})

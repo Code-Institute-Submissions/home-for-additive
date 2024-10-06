@@ -38,15 +38,10 @@
 
                     <div class="row mt-3 me-3 mb-3">
                         <div class="col-12 d-flex flex-column align-items-end">
-                            <p class="prop-overview">You are <b>logged out</b></p>
-                            <button class="nav-item">
-                            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                                    href="{% url 'account_signup' %}">Register</a>
-                            </button>
-                            <button class="nav-item">
-                            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-                                    href="{% url 'account_login' %}">Login</a>
-                            </button>
+                            <p class="prop-overview">You are <b>logged out</b></p>                            
+                            <a role="button" class="btn btn-outline-dark {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a>
+                            <br>
+                            <a role="button" class="btn btn-outline-dark {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>                            
                         </div>
                     </div>
                     <br>

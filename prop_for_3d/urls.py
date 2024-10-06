@@ -23,5 +23,9 @@ urlpatterns = [
         CreateEditConfirm.as_view(),
         name="create_edit_confirm"
         ),
-    path('proposal/<int:pk>/assessment', ProposalAssessmentView.as_view(), name='proposal_assessment')
+    path(
+        'proposal/<int:pk>/assessment',
+        ProposalAssessmentView.as_view(),
+        name='proposal_assessment'
+        ),
     ]

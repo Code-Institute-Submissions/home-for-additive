@@ -2,12 +2,15 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="col">
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="text-center">
         <br>
-        <p class="prop-overview">Your proposal is saved.</p>
-        <p class="prop-overview"><a href="{% url 'proposals' %}" class="btn btn-primary">Back to list</a></p>
+        <h4 class="prop-overview "><b>YOUR PROPOSAL IS SAVED.</b></h4>
+        <a href="{% url 'proposals' %}" class="btn btn-primary">Back to list</a>
+        <hr>
+        <br>
     </div>
 </div>
+
 
 {% endblock %}
