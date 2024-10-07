@@ -165,7 +165,9 @@ were left in the 'back-log' bucket. They are now labelled as 'done'
 ### Update on user stories
 
 'Single proposal' page now has added 'If you are an ASSESSOR' button:
+
 ![if you are an assessor](./static/images/single_proposal_lorem.jpg)
+
 Which will take an assessor/supervisor to the commenting/marking page:
 
 ![Make a comment](./static//images/make_comment_assessment.jpg)
@@ -180,6 +182,7 @@ In the revised version of the Project, the user experience was improved by:
 1. Introducing the indicator of the log-in status of the current user (meeting user story [#2](https://github.com/DrSYakovlev/home-for-additive/issues/2)) (added to the  global base.html template):
 
 ![you are logged out](./static/images/you_are_logged_out.jpg)
+
 ![you are logged in](./static/images/you_are_logged_in.jpg)
 
 2. Improved log-in form formatting:
@@ -193,6 +196,7 @@ In the revised version of the Project, the user experience was improved by:
 4. The app shows clear messages when proposal is created, updated or deleted:
 
 ![proposal is saved](./static/images/proposal_is_saved.jpg)
+
 ![proposal is deleted](./static/images/proposal_is_deleted.jpg)
 
 
@@ -231,7 +235,7 @@ EMAIL_HOST_USER = 'your-email@gmail.com'
 EMAIL_HOST_PASSWORD = 'your-app-password'  # App password if using 2FA
 DEFAULT_FROM_EMAIL = 'your-email@gmail.com'
 ```
-N.b. Do not use `console` and `smtp` simultateously.
+N.b. Do not use `console` and `smtp` simultaneously.
 
 ### Testing
 
@@ -241,6 +245,7 @@ Additional tests (see [list](#manual-testing) of tests performed on the previous
 
 
 ### Validation
+
 ***.py** Files:
 
 Were validated using [CI Python Linter](https://pep8ci.herokuapp.com/) at the:
