@@ -127,6 +127,45 @@ class DeletePropView(DeleteView):
 
 
 class ProposalAssessmentView(FormMixin, DetailView):
+    """
+    Shows the assessment form and detail page for a single
+    proposal :model:`prop_for_3d.Prop`.
+    The view allows supervisors to assess a proposal by
+    submitting an assessment form.
+
+    **Context**
+    ``proposal``
+        Instance of :model:`prop_for_3d.Prop` being assessed.
+    ``form``
+        The assessment form for :model:`prop_for_3d.Assessment`,
+        only available if the proposal hasn't already been assessed.
+    ``already_assessed``
+        A boolean indicating if the proposal has already been assessed.
+
+    **Form Class**
+    :form:`CommentOnProp`
+        Form used for submitting an assessment.
+
+    **Methods**
+    ``get_success_url()``
+        Returns the URL to redirect to after a successful form submission.
+
+    ``get_context_data()``
+        Adds additional context, including the form and the assessment status,
+        to the template.
+
+    ``post()``
+        Handles form submission. If the proposal has already been assessed, it
+        redirects to the single proposal view with an error message.
+
+    ``form_valid()``
+        Called when the form is valid. Saves the
+        assessment, sends an email to the
+        student, and redirects to the success URL.
+
+    **Template:**
+    :template:`prop_for_3d/prop_assessment.html`
+    """
     model = Prop
     template_name = "prop_for_3d/prop_assessment.html"
     context_object_name = 'proposal'
